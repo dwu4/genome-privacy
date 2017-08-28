@@ -1,9 +1,28 @@
 # Protocols for Secure Genomic Computation
 
 This library contains a proof-of-concept implementation of several protocols for
-privacy-preserving genome computation (based on Yao's garbled circuits).
-This implementation is a research prototype and is not intended for
-production-level code.
+privacy-preserving genome computation. This implementation is a research prototype and not intended
+for production-level code.
+All of the code is provided under the GPL license.
+
+--------------------------------
+Paper Reference
+--------------------------------
+
+Our protocols are described in the following paper:
+* Karthik A. Jagadeesh, David J. Wu, Johannes A. Birgmeier, Dan Boneh, and Gill Bejerano.
+  **_Deriving genomic diagnoses without revealing patient genomes_**.
+  *Science*, 357(6352):692-695, 2017.
+  \[[Abstract](http://science.sciencemag.org/cgi/content/abstract/357/6352/692?ijkey=QfLj2XCXHf3Ww&keytype=ref&siteid=sci)\]
+  \[[PDF](http://science.sciencemag.org/cgi/rapidpdf/357/6352/692?ijkey=QfLj2XCXHf3Ww&keytype=ref&siteid=sci)\]
+  [\[Full Text](http://science.sciencemag.org/cgi/content/full/357/6352/692?ijkey=QfLj2XCXHf3Ww&keytype=ref&siteid=sci)\]
+
+Note that the paper links are only active from the main repository
+site: https://github.com/dwu4/genome-privacy
+
+--------------------------------
+Building the Library
+--------------------------------
 
 To compile the code, use the following commands
     
@@ -11,10 +30,17 @@ To compile the code, use the following commands
     make
 
 The `./build_libs` command will compile the garbled circuit and oblivious transfer (OT)
-extensions libraries.
+extensions libraries. We use a modified version of the 
+[JustGarble](https://github.com/irdan/justGarble) library for the garbled circuits
+and the [OTExtension](https://github.com/encryptogroup/OTExtension) library for
+the OT implementation.
+
+--------------------------------
+Using the Code
+--------------------------------
 
 Client and server modules are provided for evaluation of the three different
-vector operations described in the paper (link forthcoming):
+vector operations described in the paper:
 * INTERSECTION (`BasicIntersectionClient` and `BasicIntersectionServer`)
 * SETDIFF (`SetDiffClient` and `SetDiffServer`)
 * MAX (`ArgMaxClient` and `ArgMaxServer`)
